@@ -9,12 +9,13 @@ import SwiftUI
 
 struct MallView: View {
     var body: some View {
-        List(Mall.data) { mall in
-            HStack {
-                Text(mall.mall)
-            }
+        NavigationView{
+            List(Mall.data) { mall in
+                HStack {
+                    Text(mall.mall)
+                }
+            }.navigationBarTitle("Malls", displayMode: .inline)
         }
-        
     }
 }
 
