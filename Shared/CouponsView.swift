@@ -30,16 +30,18 @@ struct CouponsView: View {
                 List (coupons){ couponItem in
                     VStack (alignment: .leading) {
                         //leading alignment causes it to stick left
-                        if #available(iOS 15.0, *) {
-                            AsyncImage(url: URL(string: couponItem.image)){ image in
-                                image.resizable()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .scaledToFit()
-                        }else {
-                            RemoteImageView(urlString: couponItem.image)
-                        }
+//                        if #available(iOS 15.0, *) {
+//                            AsyncImage(url: URL(string: couponItem.image)){ image in
+//                                image.resizable()
+//                            } placeholder: {
+//                                ProgressView()
+//                            }
+//                            .scaledToFit()
+//                        }else {
+//                            RemoteImageView(urlString: couponItem.image)
+//                        }
+                        
+                        RemoteImageView(urlString: couponItem.image)
                         Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
                         Text(couponItem.title).font(.system(size:20))
                         Text(String(couponItem.coins)).font(.system(size:15))
@@ -99,12 +101,13 @@ extension CouponsView {
                 return
             }
             
+            //comment this out when testing sails
             if let data = data,
                let string = String(data: data, encoding: .utf8) {
                 
                 self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"No Mall", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 0, valid:"Not Valid", details: "No Details")]
             }
-            
+            //uncomment this when testing sails
             //            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {
             //
             //                self.coupons = coupons
