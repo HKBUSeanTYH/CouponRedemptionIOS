@@ -85,6 +85,8 @@ struct Coupon: Identifiable {
     let details: String
 }
 
+extension Coupon: Decodable {}
+
 extension CouponsView {
     
     func handleClientError(_: Error) {
@@ -112,10 +114,11 @@ extension CouponsView {
                 return
             }
             
-            if let data = data,
-               let string = String(data: data, encoding: .utf8) {
+            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {
                 
-                self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"No Mall", image:"", quota:0,coins: 0, valid:"Not Valid", details: "No Details")]
+                self.coupons = coupons
+                
+//                self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"No Mall", image:"", quota:0,coins: 0, valid:"Not Valid", details: "No Details")]
             }
         }
         
