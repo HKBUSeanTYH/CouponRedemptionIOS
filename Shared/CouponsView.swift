@@ -10,6 +10,7 @@ import SwiftUI
 struct CouponsView: View {
     @State private var coupons: [Coupon] = []
     var body: some View {
+        //for sampleCoupons
         //        VStack{
         //            Section(header: Text("Coupons")){
         //                List{
@@ -26,50 +27,41 @@ struct CouponsView: View {
         //        }
         //        .padding(.top, 32.0)
         NavigationView{
-            VStack{
-                List (coupons){ couponItem in
-                    VStack (alignment: .leading) {
-                        //leading alignment causes it to stick left
-                        //                        if #available(iOS 15.0, *) {
-                        //                            AsyncImage(url: URL(string: couponItem.image)){ image in
-                        //                                image.resizable()
-                        //                            } placeholder: {
-                        //                                ProgressView()
-                        //                            }
-                        //                            .scaledToFit()
-                        //                        }else {
-                        //                            RemoteImageView(urlString: couponItem.image)
-                        //                        }
-                        
-                        RemoteImageView(urlString: couponItem.image)
-                        Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-                        Text(couponItem.title).font(.system(size:20))
-                        Text(String(couponItem.coins)).font(.system(size:15))
-                        
-                    }
-                }.onAppear(perform: startLoad)
-            }.navigationBarTitle("Coupons", displayMode: .inline)
-            //                        List (coupons){ couponItem in
-            //                            VStack (alignment: .leading) {
-            //                                //leading alignment causes it to stick left
-            //                                //                        if #available(iOS 15.0, *) {
-            //                                //                            AsyncImage(url: URL(string: couponItem.image)){ image in
-            //                                //                                image.resizable()
-            //                                //                            } placeholder: {
-            //                                //                                ProgressView()
-            //                                //                            }
-            //                                //                            .scaledToFit()
-            //                                //                        }else {
-            //                                //                            RemoteImageView(urlString: couponItem.image)
-            //                                //                        }
+            //nested Vstack look
+            //            VStack{
+            //                List (coupons){ couponItem in
+            //                    VStack (alignment: .leading) {
+            //                        RemoteImageView(urlString: couponItem.image)
+            //                        Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
+            //                        Text(couponItem.title).font(.system(size:20))
+            //                        Text(String(couponItem.coins)).font(.system(size:15))
             //
-            //                                RemoteImageView(urlString: couponItem.image)
-            //                                Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-            //                                Text(couponItem.title).font(.system(size:20))
-            //                                Text(String(couponItem.coins)).font(.system(size:15))
-            //
-            //                            }.padding()
-            //                        }.onAppear(perform: startLoad).navigationBarTitle("Coupons", displayMode: .inline)
+            //                    }
+            //                }.onAppear(perform: startLoad)
+            //            }.navigationBarTitle("Coupons", displayMode: .inline)
+            
+            //Normal one VStack look
+            List (coupons){ couponItem in
+                VStack (alignment: .leading) {
+                    //leading alignment causes it to stick left
+                    //                        if #available(iOS 15.0, *) {
+                    //                            AsyncImage(url: URL(string: couponItem.image)){ image in
+                    //                                image.resizable()
+                    //                            } placeholder: {
+                    //                                ProgressView()
+                    //                            }
+                    //                            .scaledToFit()
+                    //                        }else {
+                    //                            RemoteImageView(urlString: couponItem.image)
+                    //                        }
+                    
+                    RemoteImageView(urlString: couponItem.image)
+                    Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
+                    Text(couponItem.title).font(.system(size:20))
+                    Text(String(couponItem.coins)).font(.system(size:15))
+                    
+                }.padding()
+            }.onAppear(perform: startLoad).navigationBarTitle("Coupons", displayMode: .inline)
         }
     }
 }
