@@ -27,18 +27,19 @@ struct CouponsView: View {
         //        .padding(.top, 32.0)
         NavigationView{
             VStack{
-                //                List{
-                //                    ForEach(sampleCoupon.data){ sampleCoupon in VStack (alignment: .leading) {
-                //                        //leading alignment causes it to stick left
-                //                        Text(sampleCoupon.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-                //                        Text(sampleCoupon.title).font(.system(size:20))
-                //                        Text(String(sampleCoupon.coins)).font(.system(size:15))
-                //                    }
-                //                    }
-                //                }.onAppear(perform: startLoad)
                 List (coupons){ couponItem in
                     VStack (alignment: .leading) {
                         //leading alignment causes it to stick left
+                        if #available(iOS 15.0, *) {
+                            AsyncImage(url: URL(string: couponItem.image)){ image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .scaledToFit()
+                        }else {
+                            RemoteImageView(urlString: couponItem.image)
+                        }
                         Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
                         Text(couponItem.title).font(.system(size:20))
                         Text(String(couponItem.coins)).font(.system(size:15))
@@ -54,22 +55,6 @@ struct CouponsView_Previews: PreviewProvider {
     static var previews: some View {
         CouponsView()
     }
-}
-
-struct sampleCoupon: Identifiable {
-    var id = UUID()
-    var title: String
-    var restaurant: String
-    var img: String
-    var coins: Int
-}
-
-extension sampleCoupon {
-    static let data = [
-        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe",img:  "https://bulma.io/images/placeholders/128x128.png", coins: 500),
-        sampleCoupon(title: "50% Discount on Supreme Seafood Feast (for 2 pax)", restaurant: "Mongo Tree", img: "https://bulma.io/images/placeholders/128x128.png", coins: 600),
-        sampleCoupon(title: "50% off Yoogane's Chicken Galbi", restaurant: "Yoogane", img: "https://bulma.io/images/placeholders/128x128.png", coins: 250)
-    ]
 }
 
 struct Coupon: Identifiable {
@@ -114,14 +99,60 @@ extension CouponsView {
                 return
             }
             
-            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {
+            if let data = data,
+               let string = String(data: data, encoding: .utf8) {
                 
-                self.coupons = coupons
-                
-//                self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"No Mall", image:"", quota:0,coins: 0, valid:"Not Valid", details: "No Details")]
+                self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"No Mall", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 0, valid:"Not Valid", details: "No Details")]
             }
+            
+            //            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {
+            //
+            //                self.coupons = coupons
+            //            }
         }
         
         task.resume()
     }
 }
+
+struct RemoteImageView: View {
+    
+    var urlString: String
+    @State var image: UIImage = UIImage()
+    
+    var body: some View {
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFit()
+            .onAppear {
+                loadImage(for: urlString)
+            }
+    }
+    
+    func loadImage(for urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            self.image = UIImage(data: data) ?? UIImage()
+        }
+        task.resume()
+    }
+}
+
+
+//struct sampleCoupon: Identifiable {
+//    var id = UUID()
+//    var title: String
+//    var restaurant: String
+//    var img: String
+//    var coins: Int
+//}
+//
+//extension sampleCoupon {
+//    static let data = [
+//        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe",img:  "https://bulma.io/images/placeholders/128x128.png", coins: 500),
+//        sampleCoupon(title: "50% Discount on Supreme Seafood Feast (for 2 pax)", restaurant: "Mongo Tree", img: "https://bulma.io/images/placeholders/128x128.png", coins: 600),
+//        sampleCoupon(title: "50% off Yoogane's Chicken Galbi", restaurant: "Yoogane", img: "https://bulma.io/images/placeholders/128x128.png", coins: 250)
+//    ]
+//}
