@@ -14,6 +14,13 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Coupons")
             }
+            
+            MallView().tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Malls")
+            }
+            
+//            Image(systemName: "person")
         }
     }
 }
@@ -21,5 +28,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

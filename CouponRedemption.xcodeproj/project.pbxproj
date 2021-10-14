@@ -21,6 +21,14 @@
 		6693C81B2715367800515ADF /* MallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693C8192715367800515ADF /* MallView.swift */; };
 		66E083302717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
 		66E083312717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
+		66E083342717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */; };
+		66E083352717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */; };
+		66E083382717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */; };
+		66E083392717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */; };
+		66E0833D2717C29C008B4F93 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833C2717C29C008B4F93 /* Persistence.swift */; };
+		66E0833E2717C29C008B4F93 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833C2717C29C008B4F93 /* Persistence.swift */; };
+		66E083402717D233008B4F93 /* FilteredCouponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */; };
+		66E083412717D233008B4F93 /* FilteredCouponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,10 @@
 		6693C813271519A400515ADF /* CouponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsView.swift; sourceTree = "<group>"; };
 		6693C8192715367800515ADF /* MallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallView.swift; sourceTree = "<group>"; };
 		66E0832F2717B039008B4F93 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CouponRedemption.xcdatamodel; sourceTree = "<group>"; };
+		66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mall+CoreDataClass.swift"; sourceTree = "<group>"; };
+		66E0833C2717C29C008B4F93 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredCouponsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,7 @@
 		6693C7D0271518B000515ADF = {
 			isa = PBXGroup;
 			children = (
+				66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */,
 				6693C7D5271518B300515ADF /* Shared */,
 				6693C7DF271518BD00515ADF /* iOS */,
 				6693C7E6271518BD00515ADF /* macOS */,
@@ -113,6 +126,9 @@
 				6693C813271519A400515ADF /* CouponsView.swift */,
 				6693C8192715367800515ADF /* MallView.swift */,
 				66E0832F2717B039008B4F93 /* DetailsView.swift */,
+				66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */,
+				66E0833C2717C29C008B4F93 /* Persistence.swift */,
+				66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -321,7 +337,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6693C814271519A400515ADF /* CouponsView.swift in Sources */,
+				66E0833D2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66E083302717B039008B4F93 /* DetailsView.swift in Sources */,
+				66E083342717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */,
+				66E083402717D233008B4F93 /* FilteredCouponsView.swift in Sources */,
+				66E083382717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C801271518BD00515ADF /* ContentView.swift in Sources */,
 				6693C81A2715367800515ADF /* MallView.swift in Sources */,
 				6693C7FF271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
@@ -333,7 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6693C815271519A400515ADF /* CouponsView.swift in Sources */,
+				66E0833E2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66E083312717B039008B4F93 /* DetailsView.swift in Sources */,
+				66E083352717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */,
+				66E083412717D233008B4F93 /* FilteredCouponsView.swift in Sources */,
+				66E083392717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C802271518BD00515ADF /* ContentView.swift in Sources */,
 				6693C81B2715367800515ADF /* MallView.swift in Sources */,
 				6693C800271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
@@ -704,6 +728,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */,
+			);
+			currentVersion = 66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */;
+			path = CouponRedemption.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6693C7D1271518B000515ADF /* Project object */;
 }
