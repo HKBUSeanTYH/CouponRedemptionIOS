@@ -135,25 +135,25 @@ struct RemoteImageView: View {
 }
 
 
-struct sampleCoupon: Identifiable {
-    var id = UUID()
-    var title: String
-    var restaurant: String
-    var region: String
-    var mall: String
-    var image: String
-    var quota: Int
-    var coins: Int
-    var valid: String
-    var details: String
-}
-
-extension sampleCoupon {
-    static let data = [
-        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"),
-        sampleCoupon(title:"30% off Yooganes Chicken",restaurant: "Yoogane", region:"no idea",mall:"some idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:25, coins: 500, valid:"until November", details:"-")
-    ]
-}
+//struct sampleCoupon: Identifiable {
+//    var id = UUID()
+//    var title: String
+//    var restaurant: String
+//    var region: String
+//    var mall: String
+//    var image: String
+//    var quota: Int
+//    var coins: Int
+//    var valid: String
+//    var details: String
+//}
+//
+//extension sampleCoupon {
+//    static let data = [
+//        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"),
+//        sampleCoupon(title:"30% off Yooganes Chicken",restaurant: "Yoogane", region:"no idea",mall:"some idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:25, coins: 500, valid:"until November", details:"-")
+//    ]
+//}
 
 
 //for sampleCoupons
