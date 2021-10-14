@@ -15,7 +15,7 @@ struct MallView: View {
         NavigationView{
             //Text("Hello")
             List(malls) { mall in
-                NavigationLink(destination: FilteredCouponsView(mallItem: mall.mall ?? "")){
+                NavigationLink(destination: FilteredMallsView(mallItem: mall.mall ?? "")){
                     HStack {
                         Text(mall.mall ?? "")
                     }

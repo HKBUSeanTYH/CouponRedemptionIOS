@@ -27,8 +27,8 @@
 		66E083392717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */; };
 		66E0833D2717C29C008B4F93 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833C2717C29C008B4F93 /* Persistence.swift */; };
 		66E0833E2717C29C008B4F93 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833C2717C29C008B4F93 /* Persistence.swift */; };
-		66E083402717D233008B4F93 /* FilteredCouponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */; };
-		66E083412717D233008B4F93 /* FilteredCouponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */; };
+		66E083402717D233008B4F93 /* FilteredMallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredMallsView.swift */; };
+		66E083412717D233008B4F93 /* FilteredMallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0833F2717D233008B4F93 /* FilteredMallsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CouponRedemption.xcdatamodel; sourceTree = "<group>"; };
 		66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mall+CoreDataClass.swift"; sourceTree = "<group>"; };
 		66E0833C2717C29C008B4F93 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredCouponsView.swift; sourceTree = "<group>"; };
+		66E0833F2717D233008B4F93 /* FilteredMallsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredMallsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				66E0832F2717B039008B4F93 /* DetailsView.swift */,
 				66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */,
 				66E0833C2717C29C008B4F93 /* Persistence.swift */,
-				66E0833F2717D233008B4F93 /* FilteredCouponsView.swift */,
+				66E0833F2717D233008B4F93 /* FilteredMallsView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				66E0833D2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66E083302717B039008B4F93 /* DetailsView.swift in Sources */,
 				66E083342717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */,
-				66E083402717D233008B4F93 /* FilteredCouponsView.swift in Sources */,
+				66E083402717D233008B4F93 /* FilteredMallsView.swift in Sources */,
 				66E083382717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C801271518BD00515ADF /* ContentView.swift in Sources */,
 				6693C81A2715367800515ADF /* MallView.swift in Sources */,
@@ -356,7 +356,7 @@
 				66E0833E2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66E083312717B039008B4F93 /* DetailsView.swift in Sources */,
 				66E083352717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */,
-				66E083412717D233008B4F93 /* FilteredCouponsView.swift in Sources */,
+				66E083412717D233008B4F93 /* FilteredMallsView.swift in Sources */,
 				66E083392717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C802271518BD00515ADF /* ContentView.swift in Sources */,
 				6693C81B2715367800515ADF /* MallView.swift in Sources */,

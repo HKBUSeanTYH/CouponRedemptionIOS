@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FilteredCouponsView: View {
+struct FilteredMallsView: View {
     @State private var filcoupons: [Coupon] = []
     var mallItem = ""
     
@@ -27,11 +27,11 @@ struct FilteredCouponsView: View {
 
 struct FilteredCouponsView_Previews: PreviewProvider {
     static var previews: some View {
-        FilteredCouponsView()
+        FilteredMallsView()
     }
 }
 
-extension FilteredCouponsView{
+extension FilteredMallsView{
     func handleClientError(_: Error) {
         return
     }
