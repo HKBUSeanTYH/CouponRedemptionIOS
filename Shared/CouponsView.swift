@@ -10,58 +10,35 @@ import SwiftUI
 struct CouponsView: View {
     @State private var coupons: [Coupon] = []
     var body: some View {
-        //for sampleCoupons
-        //        VStack{
-        //            Section(header: Text("Coupons")){
-        //                List{
-        //                    ForEach(sampleCoupon.data){ sampleCoupon in VStack (alignment: .leading) {
-        //                        //leading alignment causes it to stick left
-        //                        Text(sampleCoupon.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-        //                        Text(sampleCoupon.title).font(.system(size:20))
-        //                        Text(String(sampleCoupon.coins)).font(.system(size:15))
-        //                    }
-        //                    }
-        //                }
-        //                .padding(.top, 32.0)
-        //            }
-        //        }
-        //        .padding(.top, 32.0)
         NavigationView{
-            //nested Vstack look
-            //            VStack{
-            //                List (coupons){ couponItem in
-            //                    VStack (alignment: .leading) {
-            //                        RemoteImageView(urlString: couponItem.image)
-            //                        Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-            //                        Text(couponItem.title).font(.system(size:20))
-            //                        Text(String(couponItem.coins)).font(.system(size:15))
-            //
-            //                    }
-            //                }.onAppear(perform: startLoad)
-            //            }.navigationBarTitle("Coupons", displayMode: .inline)
-            
             //Normal one VStack look
             List (coupons){ couponItem in
-                VStack (alignment: .leading) {
-                    //leading alignment causes it to stick left
-                    //                        if #available(iOS 15.0, *) {
-                    //                            AsyncImage(url: URL(string: couponItem.image)){ image in
-                    //                                image.resizable()
-                    //                            } placeholder: {
-                    //                                ProgressView()
-                    //                            }
-                    //                            .scaledToFit()
-                    //                        }else {
-                    //                            RemoteImageView(urlString: couponItem.image)
-                    //                        }
-                    
-                    RemoteImageView(urlString: couponItem.image)
-                    Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
-                    Text(couponItem.title).font(.system(size:20))
-                    Text(String(couponItem.coins)).font(.system(size:15))
-                    
+                VStack {
+                    NavigationLink(destination: DetailsView(coupon: couponItem)){
+                        VStack (alignment: .leading) {
+                            //leading alignment causes it to stick left
+                            //                        if #available(iOS 15.0, *) {
+                            //                            AsyncImage(url: URL(string: couponItem.image)){ image in
+                            //                                image.resizable()
+                            //                            } placeholder: {
+                            //                                ProgressView()
+                            //                            }
+                            //                            .scaledToFit()
+                            //                        }else {
+                            //                            RemoteImageView(urlString: couponItem.image)
+                            //                        }
+                            
+                            RemoteImageView(urlString: couponItem.image)
+                            Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30))
+                                .padding(.bottom, 5)
+                            Text(couponItem.title).font(.system(size:20))
+                            Text(String(couponItem.coins)).font(.system(size:15))
+                        }
+                    }
                 }.padding()
-            }.onAppear(perform: startLoad).navigationBarTitle("Coupons", displayMode: .inline)
+            }.onAppear(perform: startLoad).navigationBarTitle("Coupons",displayMode: .inline)
+            //.refreshable{startLoad()}
+            
         }
     }
 }
@@ -158,18 +135,54 @@ struct RemoteImageView: View {
 }
 
 
-//struct sampleCoupon: Identifiable {
-//    var id = UUID()
-//    var title: String
-//    var restaurant: String
-//    var img: String
-//    var coins: Int
-//}
+struct sampleCoupon: Identifiable {
+    var id = UUID()
+    var title: String
+    var restaurant: String
+    var region: String
+    var mall: String
+    var image: String
+    var quota: Int
+    var coins: Int
+    var valid: String
+    var details: String
+}
+
+extension sampleCoupon {
+    static let data = [
+        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"),
+        sampleCoupon(title:"30% off Yooganes Chicken",restaurant: "Yoogane", region:"no idea",mall:"some idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:25, coins: 500, valid:"until November", details:"-")
+    ]
+}
+
+
+//for sampleCoupons
+//        VStack{
+//            Section(header: Text("Coupons")){
+//                List{
+//                    ForEach(sampleCoupon.data){ sampleCoupon in VStack (alignment: .leading) {
+//                        //leading alignment causes it to stick left
+//                        Text(sampleCoupon.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
+//                        Text(sampleCoupon.title).font(.system(size:20))
+//                        Text(String(sampleCoupon.coins)).font(.system(size:15))
+//                    }
+//                    }
+//                }
+//                .padding(.top, 32.0)
+//            }
+//        }
+//        .padding(.top, 32.0)
+
+
+//nested Vstack look
+//            VStack{
+//                List (coupons){ couponItem in
+//                    VStack (alignment: .leading) {
+//                        RemoteImageView(urlString: couponItem.image)
+//                        Text(couponItem.restaurant).bold().underline(true, color: Color.gray).font(.system(size:30)).padding(3)
+//                        Text(couponItem.title).font(.system(size:20))
+//                        Text(String(couponItem.coins)).font(.system(size:15))
 //
-//extension sampleCoupon {
-//    static let data = [
-//        sampleCoupon(title:"Receive a complementary drink",restaurant: "Greyhound Cafe",img:  "https://bulma.io/images/placeholders/128x128.png", coins: 500),
-//        sampleCoupon(title: "50% Discount on Supreme Seafood Feast (for 2 pax)", restaurant: "Mongo Tree", img: "https://bulma.io/images/placeholders/128x128.png", coins: 600),
-//        sampleCoupon(title: "50% off Yoogane's Chicken Galbi", restaurant: "Yoogane", img: "https://bulma.io/images/placeholders/128x128.png", coins: 250)
-//    ]
-//}
+//                    }
+//                }.onAppear(perform: startLoad)
+//            }.navigationBarTitle("Coupons", displayMode: .inline)
