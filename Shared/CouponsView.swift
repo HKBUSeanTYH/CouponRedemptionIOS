@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CouponsView: View {
-    @State private var coupons: [Coupon] = []
+    @Binding var couponFromParent: [Coupon]
+    
     var body: some View {
         NavigationView{
             //Normal one VStack look
-            List (coupons){ couponItem in
+            List (couponFromParent){ couponItem in
                 VStack {
                     NavigationLink(destination: DetailsView(coupon: couponItem)){
                         VStack (alignment: .leading) {
@@ -44,8 +45,10 @@ struct CouponsView: View {
 }
 
 struct CouponsView_Previews: PreviewProvider {
+    @ObservedObject static var sampleData = Coupons()
+    
     static var previews: some View {
-        CouponsView()
+        CouponsView(couponFromParent: $sampleData.coupons)
     }
 }
 
@@ -95,8 +98,8 @@ extension CouponsView {
             if let data = data,
                let string = String(data: data, encoding: .utf8) {
                 
-                self.coupons = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"Pacific Place", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 0, valid:"Not Valid", details: "No Details"),
-                                Coupon(id: 1, title: "Another Placeholder", restaurant: "Another Restaurant", region: "Another Region", mall: "Elements", image: "https://bulma.io/images/placeholders/128x128.png", quota: 0, coins: 0, valid: "Not Valid", details: "No Details")]
+                self.couponFromParent = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"Pacific Place", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 0, valid:"Not Valid", details: "No Details"),
+                                         Coupon(id: 1, title: "Another Placeholder", restaurant: "Another Restaurant", region: "Another Region", mall: "Elements", image: "https://bulma.io/images/placeholders/128x128.png", quota: 0, coins: 0, valid: "Not Valid", details: "No Details")]
             }
             //uncomment this when testing sails
             //            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {

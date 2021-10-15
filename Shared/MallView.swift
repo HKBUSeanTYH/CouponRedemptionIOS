@@ -10,12 +10,13 @@ import SwiftUI
 struct MallView: View {
     @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
     var malls: FetchedResults<Mall>
+    @Binding var couponFromParent: [Coupon]
     
     var body: some View {
         NavigationView{
             //Text("Hello")
             List(malls) { mall in
-                NavigationLink(destination: FilteredMallsView(mallItem: mall.mall ?? "")){
+                NavigationLink(destination: FilteredMallsView(couponFromParent: $couponFromParent, mallItem: mall.mall ?? "")){
                     HStack {
                         Text(mall.mall ?? "")
                     }
@@ -26,8 +27,10 @@ struct MallView: View {
 }
 
 struct MallView_Previews: PreviewProvider {
+    @ObservedObject static var sampleData = Coupons()
+    
     static var previews: some View {
-        MallView()
+        MallView(couponFromParent: $sampleData.coupons)
     }
 }
 

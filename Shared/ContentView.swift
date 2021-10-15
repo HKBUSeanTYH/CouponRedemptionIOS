@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var Globalcoupons = Coupons()
+    
     var body: some View {
         TabView {
-            CouponsView().tabItem {
+            CouponsView(couponFromParent: $Globalcoupons.coupons).tabItem {
                 Image(systemName: "house")
                 Text("Coupons")
             }
             
-            MallView().tabItem {
+            MallView(couponFromParent: $Globalcoupons.coupons).tabItem {
                 Image(systemName: "doc.plaintext")
                 Text("Malls")
             }
             
-//            Image(systemName: "person")
+            //            Image(systemName: "person")
         }
     }
 }
@@ -30,4 +32,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
+}
+
+class Coupons : ObservableObject {
+    @Published var coupons: [Coupon] = []
 }
