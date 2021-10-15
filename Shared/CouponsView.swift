@@ -39,7 +39,6 @@ struct CouponsView: View {
                 }.padding()
             }.onAppear(perform: startLoad).navigationBarTitle("Coupons",displayMode: .inline)
             //.refreshable{startLoad()}
-            
         }
     }
 }
@@ -98,8 +97,8 @@ extension CouponsView {
             if let data = data,
                let string = String(data: data, encoding: .utf8) {
                 
-                self.couponFromParent = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"Pacific Place", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 0, valid:"Not Valid", details: "No Details"),
-                                         Coupon(id: 1, title: "Another Placeholder", restaurant: "Another Restaurant", region: "Another Region", mall: "Elements", image: "https://bulma.io/images/placeholders/128x128.png", quota: 0, coins: 0, valid: "Not Valid", details: "No Details")]
+                self.couponFromParent = [Coupon(id:0, title: "Placeholder Coupon", restaurant:"Placeholder Restaurant",region:"Nowhere", mall:"Pacific Place", image:"https://bulma.io/images/placeholders/128x128.png", quota:0,coins: 200, valid:"Not Valid", details: "No Details"),
+                                         Coupon(id: 1, title: "Another Placeholder", restaurant: "Another Restaurant", region: "Another Region", mall: "Elements", image: "https://bulma.io/images/placeholders/128x128.png", quota: 0, coins: 400, valid: "Not Valid", details: "No Details")]
             }
             //uncomment this when testing sails
             //            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {

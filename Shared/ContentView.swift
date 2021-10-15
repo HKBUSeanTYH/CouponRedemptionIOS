@@ -22,6 +22,11 @@ struct ContentView: View {
                 Text("Malls")
             }
             
+            CoinsView(couponFromParent: $Globalcoupons.coupons).tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Coins")
+            }
+            
             //            Image(systemName: "person")
         }
     }

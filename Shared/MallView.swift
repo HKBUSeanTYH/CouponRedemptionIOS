@@ -13,10 +13,10 @@ struct MallView: View {
     @Binding var couponFromParent: [Coupon]
     
     var body: some View {
+        //Text("Hello")
         NavigationView{
-            //Text("Hello")
             List(malls) { mall in
-                NavigationLink(destination: FilteredMallsView(couponFromParent: $couponFromParent, mallItem: mall.mall ?? "")){
+                NavigationLink(destination: FilteredMallsView(couponFromParent: $couponFromParent , mallItem: mall.mall ?? "")){
                     HStack {
                         Text(mall.mall ?? "")
                     }

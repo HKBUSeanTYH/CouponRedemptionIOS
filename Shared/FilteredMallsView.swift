@@ -13,16 +13,14 @@ struct FilteredMallsView: View {
     var mallItem = ""
     
     var body: some View {
-        NavigationView{
-            //Text("Hello")
-            List(couponFromParent.filter{$0.mall == mallItem}) { coupon in
-                NavigationLink(destination: DetailsView(coupon: coupon)){
-                    HStack {
-                        Text(coupon.restaurant)
-                    }
+        //Text("Hello")
+        List(couponFromParent.filter{$0.mall == mallItem}) { coupon in
+            NavigationLink(destination: DetailsView(coupon: coupon)){
+                HStack {
+                    Text(coupon.restaurant)
                 }
-            }.navigationBarTitle("Filtered Coupons", displayMode: .inline)
-        }
+            }
+        }.navigationBarTitle("Filtered Coupons", displayMode: .inline)
     }
 }
 
