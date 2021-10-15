@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailsView: View {
     var coupon: Coupon
+//    @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
+//    var malls: FetchedResults<Mall>
     
     var body: some View {
         VStack (alignment: .leading){
@@ -44,7 +46,7 @@ struct DetailsView: View {
                             )
                         }
                         Spacer()
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/){
+                        NavigationLink(destination: MapView(mallstr: coupon.mall)){
                             HStack {
                                 //Image(systemName: "bookmark.fill")
                                 Text("Address")

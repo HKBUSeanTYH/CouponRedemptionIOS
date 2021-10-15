@@ -23,6 +23,8 @@
 		66DDCCD927196676000112FD /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCD727196676000112FD /* CoinsView.swift */; };
 		66DDCCDB27197790000112FD /* FilteredCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDA27197790000112FD /* FilteredCoinsView.swift */; };
 		66DDCCDC27197790000112FD /* FilteredCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDA27197790000112FD /* FilteredCoinsView.swift */; };
+		66DDCCDE27198C5C000112FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDD27198C5C000112FD /* MapView.swift */; };
+		66DDCCDF27198C5C000112FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDD27198C5C000112FD /* MapView.swift */; };
 		66E083302717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
 		66E083312717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
 		66E083342717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */; };
@@ -71,6 +73,7 @@
 		6693C8192715367800515ADF /* MallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallView.swift; sourceTree = "<group>"; };
 		66DDCCD727196676000112FD /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
 		66DDCCDA27197790000112FD /* FilteredCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredCoinsView.swift; sourceTree = "<group>"; };
+		66DDCCDD27198C5C000112FD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		66E0832F2717B039008B4F93 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CouponRedemption.xcdatamodel; sourceTree = "<group>"; };
 		66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mall+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 				66E0833F2717D233008B4F93 /* FilteredMallsView.swift */,
 				66DDCCD727196676000112FD /* CoinsView.swift */,
 				66DDCCDA27197790000112FD /* FilteredCoinsView.swift */,
+				66DDCCDD27198C5C000112FD /* MapView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -345,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6693C814271519A400515ADF /* CouponsView.swift in Sources */,
+				66DDCCDE27198C5C000112FD /* MapView.swift in Sources */,
 				66E0833D2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66DDCCDB27197790000112FD /* FilteredCoinsView.swift in Sources */,
 				66E083302717B039008B4F93 /* DetailsView.swift in Sources */,
@@ -363,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6693C815271519A400515ADF /* CouponsView.swift in Sources */,
+				66DDCCDF27198C5C000112FD /* MapView.swift in Sources */,
 				66E0833E2717C29C008B4F93 /* Persistence.swift in Sources */,
 				66DDCCDC27197790000112FD /* FilteredCoinsView.swift in Sources */,
 				66E083312717B039008B4F93 /* DetailsView.swift in Sources */,
