@@ -12,12 +12,12 @@ struct MapView: View {
     var mallstr: String = "IFC Mall"
     @FetchRequest var malls: FetchedResults<Mall>
     
-//    @State private var region = MKCoordinateRegion()
+    //    @State private var region = MKCoordinateRegion()
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 22.33787, longitude: 114.18131),
         span:   MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
     )
-
+    
     init(mallstr: String) {
         
         self.mallstr = mallstr
@@ -28,18 +28,27 @@ struct MapView: View {
             predicate: NSPredicate(format: "mall == %@", mallstr)
         )
         
-//        self._region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.malls[0].latitude, longitude: self.malls[0].longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-//        if !self.malls.isEmpty {
-//            self.region.center = CLLocationCoordinate2D(latitude: self.malls[0].latitude, longitude: self.malls[0].longitude)
-//
-//        }
+        //        self._region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.malls[0].latitude, longitude: self.malls[0].longitude), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+        //        if !self.malls.isEmpty {
+        //            self.region.center = CLLocationCoordinate2D(latitude: self.malls[0].latitude, longitude: self.malls[0].longitude)
+        //
+        //        }
         //during init, fetch request is still processing and may not have data causing empty array!!
     }
     
     var body: some View {
         Map(coordinateRegion: $region, annotationItems: malls) { m in
             
-            MapMarker(coordinate: CLLocationCoordinate2D(latitude: m.latitude, longitude: m.longitude))
+            MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: m.latitude, longitude: m.longitude)){
+                Image(systemName: "mappin.circle.fill")
+                    .resizable()
+                    .frame(width: 30.0, height: 30.0)
+                    .foregroundColor(Color(.systemRed))
+                Text(m.mall ?? "")
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: 150)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .edgesIgnoringSafeArea(.top)
         .onAppear{
