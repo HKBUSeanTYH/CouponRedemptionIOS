@@ -18,7 +18,7 @@ struct UserView: View {
                 HStack {
                     RemoteImageView(urlString: "https://bulma.io/images/placeholders/128x128.png").frame(width: 80.0, height:80).padding(.trailing, 40.0)
                     Text(username)
-                    //Text(urlFromParent)
+                    Text(urlFromParent)
                 }.padding(.top, 20)
                 if (!loggedIn){
                     List (userPageItem.data.filter{$0.item == "log in"}){ items in
