@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            CouponsView(couponFromParent: $Globalcoupons.coupons).tabItem {
+            CouponsView(couponFromParent: $Globalcoupons.coupons, urlFromParent: $GlobalURL.url).tabItem {
                 Image(systemName: "house")
                 Text("Coupons")
             }
