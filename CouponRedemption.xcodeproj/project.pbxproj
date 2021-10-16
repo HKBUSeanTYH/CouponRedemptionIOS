@@ -25,6 +25,8 @@
 		66DDCCDC27197790000112FD /* FilteredCoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDA27197790000112FD /* FilteredCoinsView.swift */; };
 		66DDCCDE27198C5C000112FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDD27198C5C000112FD /* MapView.swift */; };
 		66DDCCDF27198C5C000112FD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDCCDD27198C5C000112FD /* MapView.swift */; };
+		66DED81F271A8D12001B8C1E /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DED81E271A8D12001B8C1E /* UserView.swift */; };
+		66DED820271A8D12001B8C1E /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DED81E271A8D12001B8C1E /* UserView.swift */; };
 		66E083302717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
 		66E083312717B039008B4F93 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E0832F2717B039008B4F93 /* DetailsView.swift */; };
 		66E083342717C1FC008B4F93 /* CouponRedemption.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66E083322717C1FC008B4F93 /* CouponRedemption.xcdatamodeld */; };
@@ -74,6 +76,7 @@
 		66DDCCD727196676000112FD /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
 		66DDCCDA27197790000112FD /* FilteredCoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredCoinsView.swift; sourceTree = "<group>"; };
 		66DDCCDD27198C5C000112FD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		66DED81E271A8D12001B8C1E /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		66E0832F2717B039008B4F93 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		66E083332717C1FC008B4F93 /* CouponRedemption.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CouponRedemption.xcdatamodel; sourceTree = "<group>"; };
 		66E083362717C277008B4F93 /* Mall+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mall+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 				66DDCCD727196676000112FD /* CoinsView.swift */,
 				66DDCCDA27197790000112FD /* FilteredCoinsView.swift */,
 				66DDCCDD27198C5C000112FD /* MapView.swift */,
+				66DED81E271A8D12001B8C1E /* UserView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -358,6 +362,7 @@
 				66E083382717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C801271518BD00515ADF /* ContentView.swift in Sources */,
 				66DDCCD827196676000112FD /* CoinsView.swift in Sources */,
+				66DED81F271A8D12001B8C1E /* UserView.swift in Sources */,
 				6693C81A2715367800515ADF /* MallView.swift in Sources */,
 				6693C7FF271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
 			);
@@ -377,6 +382,7 @@
 				66E083392717C277008B4F93 /* Mall+CoreDataClass.swift in Sources */,
 				6693C802271518BD00515ADF /* ContentView.swift in Sources */,
 				66DDCCD927196676000112FD /* CoinsView.swift in Sources */,
+				66DED820271A8D12001B8C1E /* UserView.swift in Sources */,
 				6693C81B2715367800515ADF /* MallView.swift in Sources */,
 				6693C800271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
 			);
