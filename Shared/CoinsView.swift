@@ -9,11 +9,12 @@ import SwiftUI
 
 struct CoinsView: View {
     @Binding var couponFromParent: [Coupon]
+    @Binding var urlFromParent: String
     
     var body: some View {
         NavigationView{
             List(sampleRange.data) { ranges in
-                NavigationLink(destination: FilteredCoinsView(couponFromParent: $couponFromParent,coinsItem: ranges.range)){
+                NavigationLink(destination: FilteredCoinsView(couponFromParent: $couponFromParent, urlFromParent: $urlFromParent, coinsItem: ranges.range)){
                     HStack {
                         Text(ranges.range)
                     }
@@ -25,8 +26,10 @@ struct CoinsView: View {
 
 struct CoinsView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
+    @ObservedObject static var sampleUrl = urlItem()
+    
     static var previews: some View {
-        CoinsView(couponFromParent: $sampleData.coupons)
+        CoinsView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }
 }
 

@@ -18,12 +18,12 @@ struct ContentView: View {
                 Text("Coupons")
             }
             
-            MallView(couponFromParent: $Globalcoupons.coupons).tabItem {
+            MallView(couponFromParent: $Globalcoupons.coupons, urlFromParent: $GlobalURL.url).tabItem {
                 Image(systemName: "doc.plaintext")
                 Text("Malls")
             }
             
-            CoinsView(couponFromParent: $Globalcoupons.coupons).tabItem {
+            CoinsView(couponFromParent: $Globalcoupons.coupons, urlFromParent: $GlobalURL.url).tabItem {
                 Image(systemName: "doc.plaintext")
                 Text("Coins")
             }

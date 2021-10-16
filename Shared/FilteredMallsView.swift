@@ -9,13 +9,14 @@ import SwiftUI
 
 struct FilteredMallsView: View {
     @Binding var couponFromParent: [Coupon]
+    @Binding var urlFromParent: String
     //@State private var filcoupons: [Coupon] = []
     var mallItem = ""
     
     var body: some View {
         //Text("Hello")
         List(couponFromParent.filter{$0.mall == mallItem}) { coupon in
-            NavigationLink(destination: DetailsView(coupon: coupon)){
+            NavigationLink(destination: DetailsView(coupon: coupon, urlFromParent: $urlFromParent)){
                 HStack {
                     Text(coupon.restaurant)
                 }
@@ -26,8 +27,9 @@ struct FilteredMallsView: View {
 
 struct FilteredCouponsView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
+    @ObservedObject static var sampleUrl = urlItem()
     static var previews: some View {
-        FilteredMallsView(couponFromParent: $sampleData.coupons)
+        FilteredMallsView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }
 }
 

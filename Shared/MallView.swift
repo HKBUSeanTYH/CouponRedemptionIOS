@@ -11,12 +11,13 @@ struct MallView: View {
     @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
     var malls: FetchedResults<Mall>
     @Binding var couponFromParent: [Coupon]
+    @Binding var urlFromParent: String
     
     var body: some View {
         //Text("Hello")
         NavigationView{
             List(malls) { mall in
-                NavigationLink(destination: FilteredMallsView(couponFromParent: $couponFromParent , mallItem: mall.mall ?? "")){
+                NavigationLink(destination: FilteredMallsView(couponFromParent: $couponFromParent, urlFromParent: $urlFromParent , mallItem: mall.mall ?? "")){
                     HStack {
                         Text(mall.mall ?? "")
                     }
@@ -28,9 +29,10 @@ struct MallView: View {
 
 struct MallView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
+    @ObservedObject static var sampleUrl = urlItem()
     
     static var previews: some View {
-        MallView(couponFromParent: $sampleData.coupons)
+        MallView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }
 }
 

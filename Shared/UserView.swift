@@ -50,9 +50,9 @@ struct UserView: View {
 }
 
 struct UserView_Previews: PreviewProvider {
-    @ObservedObject static var sampleData = urlItem()
+    @ObservedObject static var sampleUrl = urlItem()
     static var previews: some View {
-        UserView(urlFromParent: $sampleData.url)
+        UserView(urlFromParent: $sampleUrl.url)
     }
 }
 

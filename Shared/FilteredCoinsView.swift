@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilteredCoinsView: View {
     @Binding var couponFromParent: [Coupon]
+    @Binding var urlFromParent: String
     //@State private var filcoupons: [Coupon] = []
     var coinsItem = ""
     var filteredCoupons: [Coupon] = []
@@ -28,7 +29,7 @@ struct FilteredCoinsView: View {
     var body: some View {
         if (coinsItem == "Coins <= 300"){
             List(couponFromParent.filter{$0.coins <= 300}) { coupon in
-                NavigationLink(destination: DetailsView(coupon: coupon)){
+                NavigationLink(destination: DetailsView(coupon: coupon, urlFromParent: $urlFromParent)){
                     HStack {
                         Text(coupon.restaurant)
                     }
@@ -36,7 +37,7 @@ struct FilteredCoinsView: View {
             }.navigationBarTitle("Filtered Coupons", displayMode: .inline)
         }else if (coinsItem == "300 < Coins < 600"){
             List(couponFromParent.filter{$0.coins > 300 && $0.coins < 600}) { coupon in
-                NavigationLink(destination: DetailsView(coupon: coupon)){
+                NavigationLink(destination: DetailsView(coupon: coupon, urlFromParent: $urlFromParent)){
                     HStack {
                         Text(coupon.restaurant)
                     }
@@ -44,7 +45,7 @@ struct FilteredCoinsView: View {
             }.navigationBarTitle("Filtered Coupons", displayMode: .inline)
         }else if (coinsItem == "Coins >= 600"){
             List(couponFromParent.filter{$0.coins >= 600}) { coupon in
-                NavigationLink(destination: DetailsView(coupon: coupon)){
+                NavigationLink(destination: DetailsView(coupon: coupon, urlFromParent: $urlFromParent)){
                     HStack {
                         Text(coupon.restaurant)
                     }
@@ -56,8 +57,10 @@ struct FilteredCoinsView: View {
 
 struct FilteredCoinsView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
+    @ObservedObject static var sampleUrl = urlItem()
+    
     static var previews: some View {
-        FilteredCoinsView(couponFromParent: $sampleData.coupons)
+        FilteredCoinsView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }
 }
 

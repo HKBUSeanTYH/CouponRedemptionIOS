@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailsView: View {
     var coupon: Coupon
     @State var showsAlert = false
+    @Binding var urlFromParent: String
     //    @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
     //    var malls: FetchedResults<Mall>
     
@@ -70,8 +71,9 @@ struct DetailsView: View {
 }
 
 struct DetailsView_Previews: PreviewProvider {
+    @ObservedObject static var sampleUrl = urlItem()
     static var previews: some View {
-        DetailsView(coupon: Coupon(id:0,title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"))
+        DetailsView(coupon: Coupon(id:0,title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"), urlFromParent: $sampleUrl.url)
     }
 }
 

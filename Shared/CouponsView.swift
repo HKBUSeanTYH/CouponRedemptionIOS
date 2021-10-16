@@ -16,7 +16,7 @@ struct CouponsView: View {
             //Normal one VStack look
             List (couponFromParent){ couponItem in
                 VStack {
-                    NavigationLink(destination: DetailsView(coupon: couponItem)){
+                    NavigationLink(destination: DetailsView(coupon: couponItem, urlFromParent: $urlFromParent)){
                         VStack (alignment: .leading) {
                             //leading alignment causes it to stick left
                             //                        if #available(iOS 15.0, *) {
