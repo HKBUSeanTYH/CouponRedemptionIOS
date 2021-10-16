@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DetailsView: View {
     var coupon: Coupon
-//    @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
-//    var malls: FetchedResults<Mall>
+    @State var showsAlert = false
+    //    @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
+    //    var malls: FetchedResults<Mall>
     
     var body: some View {
         VStack (alignment: .leading){
@@ -34,7 +35,9 @@ struct DetailsView: View {
                         Text(coupon.valid)
                     }
                     HStack{
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/){
+                        Button(action: {
+                            self.showsAlert.toggle()
+                        }){
                             HStack {
                                 //Image(systemName: "bookmark.fill")
                                 Text("Redeem")
@@ -44,6 +47,8 @@ struct DetailsView: View {
                                 RoundedRectangle(cornerRadius: 10.0)
                                     .stroke(lineWidth: 2.0)
                             )
+                        }.alert(isPresented: self.$showsAlert) {
+                            Alert(title: Text("Are you sure?"), message: Text("To redeem this coupon?"),  primaryButton: .default(Text("Okay"), action: {}), secondaryButton: .cancel() )
                         }
                         Spacer()
                         NavigationLink(destination: MapView(mallstr: coupon.mall)){
