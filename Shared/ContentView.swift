@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var Globalcoupons = Coupons()
+    @ObservedObject var GlobalURL = urlItem()
     
     var body: some View {
         TabView {
@@ -27,7 +28,12 @@ struct ContentView: View {
                 Text("Coins")
             }
             
-            //            Image(systemName: "person")
+            UserView(urlFromParent: $GlobalURL.url).tabItem{
+                Image(systemName: "person")
+                Text("User")
+            }
+            
+            //
         }
     }
 }
@@ -41,4 +47,8 @@ struct ContentView_Previews: PreviewProvider {
 
 class Coupons : ObservableObject {
     @Published var coupons: [Coupon] = []
+}
+
+class urlItem : ObservableObject {
+    @Published var url : String = "https://api.npoint.io/a8cea79c033ace1c8b8b"
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CouponsView: View {
     @Binding var couponFromParent: [Coupon]
+    @Binding var urlFromParent: String
     
     var body: some View {
         NavigationView{
@@ -45,9 +46,10 @@ struct CouponsView: View {
 
 struct CouponsView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
+    @ObservedObject static var sampleUrl = urlItem()
     
     static var previews: some View {
-        CouponsView(couponFromParent: $sampleData.coupons)
+        CouponsView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }
 }
 
@@ -78,7 +80,8 @@ extension CouponsView {
     
     func startLoad() {
         
-        let url = URL(string: "https://api.npoint.io/a8cea79c033ace1c8b8b")!
+        let url = URL(string: urlFromParent)!
+        //"https://api.npoint.io/a8cea79c033ace1c8b8b"
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             

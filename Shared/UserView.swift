@@ -10,6 +10,7 @@ import SwiftUI
 struct UserView: View {
     @State private var username: String = "Placeholder Username"
     @State private var loggedIn = false
+    @Binding var urlFromParent: String
     
     var body: some View {
         NavigationView{
@@ -17,6 +18,7 @@ struct UserView: View {
                 HStack {
                     RemoteImageView(urlString: "https://bulma.io/images/placeholders/128x128.png").frame(width: 80.0, height:80).padding(.trailing, 40.0)
                     Text(username)
+                    //Text(urlFromParent)
                 }.padding(.top, 20)
                 if (!loggedIn){
                     List (userPageItem.data.filter{$0.item == "log in"}){ items in
@@ -48,8 +50,9 @@ struct UserView: View {
 }
 
 struct UserView_Previews: PreviewProvider {
+    @ObservedObject static var sampleData = urlItem()
     static var previews: some View {
-        UserView()
+        UserView(urlFromParent: $sampleData.url)
     }
 }
 
