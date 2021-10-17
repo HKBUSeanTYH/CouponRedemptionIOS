@@ -25,11 +25,12 @@ struct LoginView: View {
             TextField("Username", text: $username).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 20).padding(.trailing, 20)
             SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle()).padding(.leading, 20).padding(.trailing, 20).padding(.bottom, 60)
             Button(action: {
-                if (username.isEmpty || password.isEmpty){
-                    self.showsLoginAlert.toggle()
-                }else{
-                    startLogin(username: username, password: password)
-                }
+//                if (username.isEmpty || password.isEmpty){
+//                    self.showsLoginAlert.toggle()
+//                }else{
+//
+//                }
+                startLogin(username: username, password: password)
             }){
                 Text("Login")
             }.padding(.top, 10.0).padding(.bottom, 10.0)
@@ -37,9 +38,10 @@ struct LoginView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 10.0)
                     .stroke(lineWidth: 2.0)
-            ).alert(isPresented: self.$showsLoginAlert) {
-                Alert(title: Text("Missing Fields!"), message: Text("Please input login information!"))
-            }
+            )
+//            .alert(isPresented: self.$showsLoginAlert) {
+//                Alert(title: Text("Missing Fields!"), message: Text("Please input login information!"))
+//            }
         }.alert(isPresented: self.$showsLoginFail){
             Alert(title: Text("Login Failed!"), message: Text(serverMsg))
         }
