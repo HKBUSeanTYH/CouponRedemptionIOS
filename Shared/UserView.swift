@@ -11,6 +11,7 @@ struct UserView: View {
     @State private var username: String = "Placeholder Username"
     @State private var loggedIn = false
     @Binding var urlFromParent: String
+    @Binding var statusFromParent: Bool
     
     var body: some View {
         NavigationView{
@@ -24,7 +25,7 @@ struct UserView: View {
                     List (userPageItem.data.filter{$0.item == "log in"}){ items in
                         HStack{
                             //Text(items.item)
-                            NavigationLink(destination: LoginView(urlFromParent: $urlFromParent)){
+                            NavigationLink(destination: LoginView(urlFromParent: $urlFromParent, statusFromParent: $statusFromParent)){
                                 Text(items.item)
                                 //                                Button(action: {
                                 //                                    self.loggedIn.toggle()
@@ -55,8 +56,9 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     @ObservedObject static var sampleUrl = urlItem()
+    @ObservedObject static var sampleStatus = loginStatus()
     static var previews: some View {
-        UserView(urlFromParent: $sampleUrl.url)
+        UserView(urlFromParent: $sampleUrl.url, statusFromParent: $sampleStatus.loggedIn)
     }
 }
 

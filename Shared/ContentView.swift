@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var Globalcoupons = Coupons()
     @ObservedObject var GlobalURL = urlItem()
+    @ObservedObject var isloggedIn  = loginStatus()
     
     var body: some View {
         TabView {
@@ -28,7 +29,7 @@ struct ContentView: View {
                 Text("Coins")
             }
             
-            UserView(urlFromParent: $GlobalURL.url).tabItem{
+            UserView(urlFromParent: $GlobalURL.url, statusFromParent: $isloggedIn.loggedIn ).tabItem{
                 Image(systemName: "person")
                 Text("User")
             }
@@ -51,4 +52,8 @@ class Coupons : ObservableObject {
 
 class urlItem : ObservableObject {
     @Published var url : String = "https://d1a4-158-182-200-102.ngrok.io"
+}
+
+class loginStatus : ObservableObject {
+    @Published var loggedIn : Bool = false
 }
