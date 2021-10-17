@@ -48,6 +48,7 @@ struct UserView: View {
                                 if (items.item == "log out"){
                                     statusFromParent.toggle()
                                     startLogout()
+                                    //logout is kind of buggy. sometimes the username is not updated after logout
                                 }
                             }) {
                                 Text(items.item)
