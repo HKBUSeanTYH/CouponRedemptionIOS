@@ -50,5 +50,5 @@ class Coupons : ObservableObject {
 }
 
 class urlItem : ObservableObject {
-    @Published var url : String = "https://api.npoint.io/a8cea79c033ace1c8b8b"
+    @Published var url : String = "https://d1a4-158-182-200-102.ngrok.io"
 }

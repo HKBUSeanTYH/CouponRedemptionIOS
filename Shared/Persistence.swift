@@ -19,6 +19,12 @@ struct PersistenceController {
 //            let newItem = Item(context: viewContext)
 //            newItem.timestamp = Date()
 //        }
+        for _ in 0..<5 {
+            let mallItem = Mall(context: viewContext)
+            mallItem.mall = "placeholder mall"
+            mallItem.latitude = 22.2849
+            mallItem.longitude = 114.1663225
+        }
         do {
             try viewContext.save()
         } catch {
