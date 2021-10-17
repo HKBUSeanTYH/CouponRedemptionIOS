@@ -16,6 +16,7 @@ struct LoginView: View {
     @State private var showsLoginFail = false
     @Binding var urlFromParent: String
     @Binding var statusFromParent: Bool
+    @Binding var loggedInUser: User
     
     var body: some View {
         VStack{
@@ -39,22 +40,23 @@ struct LoginView: View {
             ).alert(isPresented: self.$showsLoginAlert) {
                 Alert(title: Text("Missing Fields!"), message: Text("Please input login information!"))
             }
-        }
-//        .alert(isPresented: self.$showsLoginSuccess) {
-//            Alert(title: Text("Logged In Successfully"), message: Text("You may now leave this page."))
-//        }
-        .alert(isPresented: self.$showsLoginFail){
+        }.alert(isPresented: self.$showsLoginFail){
             Alert(title: Text("Login Failed!"), message: Text(serverMsg))
         }
+        VStack{}
+            .alert(isPresented: self.$showsLoginSuccess) {
+                Alert(title: Text("Logged In Successfully"), message: Text("You may now leave this page."))
+            }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     @ObservedObject static var sampleUrl = urlItem()
     @ObservedObject static var sampleStatus = loginStatus()
+    @ObservedObject static var sampleUser = currentUser()
     
     static var previews: some View {
-        LoginView(urlFromParent: $sampleUrl.url, statusFromParent: $sampleStatus.loggedIn)
+        LoginView(urlFromParent: $sampleUrl.url, statusFromParent: $sampleStatus.loggedIn, loggedInUser: $sampleUser.user)
     }
 }
 
@@ -112,9 +114,11 @@ extension LoginView {
             
             //uncomment this when testing sails
             if let data = data, let user = try? JSONDecoder().decode(User.self, from: data) {
-                
-                self.statusFromParent.toggle()
-                self.showsLoginSuccess.toggle()
+                DispatchQueue.main.async {
+                    self.statusFromParent.toggle()
+                    self.showsLoginSuccess.toggle()
+                    self.loggedInUser = user
+                }
             }
         }
         

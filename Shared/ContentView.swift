@@ -11,6 +11,7 @@ struct ContentView: View {
     @ObservedObject var Globalcoupons = Coupons()
     @ObservedObject var GlobalURL = urlItem()
     @ObservedObject var isloggedIn  = loginStatus()
+    @ObservedObject var user = currentUser()
     
     var body: some View {
         TabView {
@@ -29,7 +30,7 @@ struct ContentView: View {
                 Text("Coins")
             }
             
-            UserView(urlFromParent: $GlobalURL.url, statusFromParent: $isloggedIn.loggedIn ).tabItem{
+            UserView(urlFromParent: $GlobalURL.url, statusFromParent: $isloggedIn.loggedIn,loggedInUser: $user.user  ).tabItem{
                 Image(systemName: "person")
                 Text("User")
             }
@@ -56,4 +57,8 @@ class urlItem : ObservableObject {
 
 class loginStatus : ObservableObject {
     @Published var loggedIn : Bool = false
+}
+
+class currentUser: ObservableObject {
+    @Published var user: User = User(id:0, username: "", wallet:0, role: "")
 }
