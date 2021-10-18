@@ -52,7 +52,7 @@ class Coupons : ObservableObject {
 }
 
 class urlItem : ObservableObject {
-    @Published var url : String = "https://d1a4-158-182-200-102.ngrok.io"
+    @Published var url : String = "https://17d2-158-182-200-102.ngrok.io"
 }
 
 class loginStatus : ObservableObject {

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6608572E271BDBF4009C8989 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6608572D271BDBF4009C8989 /* LoginView.swift */; };
 		6608572F271BDBF4009C8989 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6608572D271BDBF4009C8989 /* LoginView.swift */; };
+		66824BBD271D011900C2C7A9 /* RedeemedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66824BBC271D011900C2C7A9 /* RedeemedView.swift */; };
+		66824BBE271D011900C2C7A9 /* RedeemedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66824BBC271D011900C2C7A9 /* RedeemedView.swift */; };
 		6693C7F2271518BD00515ADF /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693C7F1271518BD00515ADF /* Tests_iOS.swift */; };
 		6693C7FD271518BD00515ADF /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693C7FC271518BD00515ADF /* Tests_macOS.swift */; };
 		6693C7FF271518BD00515ADF /* CouponRedemptionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6693C7D6271518B300515ADF /* CouponRedemptionApp.swift */; };
@@ -60,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		6608572D271BDBF4009C8989 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		66824BBC271D011900C2C7A9 /* RedeemedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemedView.swift; sourceTree = "<group>"; };
 		6693C7D6271518B300515ADF /* CouponRedemptionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRedemptionApp.swift; sourceTree = "<group>"; };
 		6693C7D7271518B300515ADF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6693C7D8271518BD00515ADF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 				66DDCCDD27198C5C000112FD /* MapView.swift */,
 				66DED81E271A8D12001B8C1E /* UserView.swift */,
 				6608572D271BDBF4009C8989 /* LoginView.swift */,
+				66824BBC271D011900C2C7A9 /* RedeemedView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -368,6 +372,7 @@
 				6693C801271518BD00515ADF /* ContentView.swift in Sources */,
 				66DDCCD827196676000112FD /* CoinsView.swift in Sources */,
 				66DED81F271A8D12001B8C1E /* UserView.swift in Sources */,
+				66824BBD271D011900C2C7A9 /* RedeemedView.swift in Sources */,
 				6693C81A2715367800515ADF /* MallView.swift in Sources */,
 				6693C7FF271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
 			);
@@ -389,6 +394,7 @@
 				6693C802271518BD00515ADF /* ContentView.swift in Sources */,
 				66DDCCD927196676000112FD /* CoinsView.swift in Sources */,
 				66DED820271A8D12001B8C1E /* UserView.swift in Sources */,
+				66824BBE271D011900C2C7A9 /* RedeemedView.swift in Sources */,
 				6693C81B2715367800515ADF /* MallView.swift in Sources */,
 				6693C800271518BD00515ADF /* CouponRedemptionApp.swift in Sources */,
 			);

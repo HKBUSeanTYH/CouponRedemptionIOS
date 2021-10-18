@@ -14,17 +14,17 @@ struct FilteredCoinsView: View {
     var coinsItem = ""
     var filteredCoupons: [Coupon] = []
     
-//    var my_closure: (Coupon) -> Bool = {
-//
-//        if (true) {
-//            print($0.coins)
-//            return true
-//
-//
-//        }
-//
-//
-//    }
+    //    var my_closure: (Coupon) -> Bool = {
+    //
+    //        if (true) {
+    //            print($0.coins)
+    //            return true
+    //
+    //
+    //        }
+    //
+    //
+    //    }
     
     var body: some View {
         if (coinsItem == "Coins <= 300"){

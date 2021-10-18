@@ -14,6 +14,8 @@ struct UserView: View {
     @Binding var statusFromParent: Bool
     @Binding var loggedInUser: User
     
+    @State var isLinkActive = false
+    
     var body: some View {
         NavigationView{
             VStack {
@@ -32,11 +34,6 @@ struct UserView: View {
                             //Text(items.item)
                             NavigationLink(destination: LoginView(urlFromParent: $urlFromParent, statusFromParent: $statusFromParent, loggedInUser: $loggedInUser)){
                                 Text(items.item)
-                                //                                Button(action: {
-                                //                                    self.loggedIn.toggle()
-                                //                                }) {
-                                //
-                                //                                }
                             }
                             
                         }
@@ -49,6 +46,8 @@ struct UserView: View {
                                     statusFromParent.toggle()
                                     startLogout()
                                     //logout is kind of buggy. sometimes the username is not updated after logout
+                                }else if (items.item == "redeemed coupons"){
+                                    self.isLinkActive.toggle()
                                 }
                             }) {
                                 Text(items.item)
@@ -56,7 +55,10 @@ struct UserView: View {
                         }
                     }
                 }
-            }.navigationBarTitle("User Profile", displayMode: .inline)
+            }.navigationBarTitle("User Profile", displayMode: .inline).background(NavigationLink(destination: RedeemedView(urlFromParent: $urlFromParent), isActive: $isLinkActive) {
+                EmptyView()
+            }
+            .hidden())
         }
     }
 }

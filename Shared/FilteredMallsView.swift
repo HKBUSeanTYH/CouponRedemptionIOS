@@ -10,6 +10,7 @@ import SwiftUI
 struct FilteredMallsView: View {
     @Binding var couponFromParent: [Coupon]
     @Binding var urlFromParent: String
+
     //@State private var filcoupons: [Coupon] = []
     var mallItem = ""
     
@@ -28,6 +29,7 @@ struct FilteredMallsView: View {
 struct FilteredCouponsView_Previews: PreviewProvider {
     @ObservedObject static var sampleData = Coupons()
     @ObservedObject static var sampleUrl = urlItem()
+    
     static var previews: some View {
         FilteredMallsView(couponFromParent: $sampleData.coupons, urlFromParent: $sampleUrl.url)
     }

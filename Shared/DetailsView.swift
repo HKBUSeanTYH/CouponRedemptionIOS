@@ -10,7 +10,12 @@ import SwiftUI
 struct DetailsView: View {
     var coupon: Coupon
     @State var showsAlert = false
+    @State private var serverMsg: String = ""
+    @State private var showsRedeemFail = false
+    @State private var showsRedeemSuccess = false
     @Binding var urlFromParent: String
+    
+    @State private var alertItem: AlertItem?
     //    @FetchRequest(entity: Mall.entity(), sortDescriptors: [])
     //    var malls: FetchedResults<Mall>
     
@@ -18,6 +23,9 @@ struct DetailsView: View {
         VStack (alignment: .leading){
             Section{
                 RemoteImageView(urlString: coupon.image)
+            }
+            .alert(isPresented: self.$showsRedeemFail){
+                Alert(title: Text("Redeem Failed!"), message: Text(serverMsg))
             }
             Section{
                 VStack (alignment: .leading) {
@@ -49,7 +57,7 @@ struct DetailsView: View {
                                     .stroke(lineWidth: 2.0)
                             )
                         }.alert(isPresented: self.$showsAlert) {
-                            Alert(title: Text("Are you sure?"), message: Text("To redeem this coupon?"),  primaryButton: .default(Text("Okay"), action: {}), secondaryButton: .cancel() )
+                            Alert(title: Text("Are you sure?"), message: Text("To redeem this coupon?"),  primaryButton: .default(Text("Okay"), action: {redeemRequest(id: coupon.id)}), secondaryButton: .cancel() )
                         }
                         Spacer()
                         NavigationLink(destination: MapView(mallstr: coupon.mall)){
@@ -72,8 +80,58 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
     @ObservedObject static var sampleUrl = urlItem()
+    
     static var previews: some View {
         DetailsView(coupon: Coupon(id:0,title:"Receive a complementary drink",restaurant: "Greyhound Cafe", region:"no idea",mall:"no idea",image:  "https://bulma.io/images/placeholders/128x128.png",quota:50, coins: 500, valid:"until December", details:"-"), urlFromParent: $sampleUrl.url)
+    }
+}
+
+struct AlertItem: Identifiable {
+    var id = UUID()
+    var title: Text
+    var message: Text?
+    var dismissButton: Alert.Button?
+}
+
+extension DetailsView {
+    
+    func handleClientError(_: Error) {
+        return
+    }
+    
+    func handleServerError(_: URLResponse?) {
+        return
+    }
+    
+    
+    func redeemRequest(id: Int) {
+        
+        let url = URL(string: urlFromParent+"/user/coupons/add/"+"\(id)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                self.handleClientError(error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                self.handleServerError(response)
+                let str = String(decoding: data!, as: UTF8.self)
+                serverMsg = str
+                self.showsRedeemFail.toggle()
+                return
+            }
+            
+            self.showsRedeemSuccess.toggle()
+        }
+        
+        task.resume()
     }
 }
 
