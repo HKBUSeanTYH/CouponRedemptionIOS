@@ -10,22 +10,26 @@ import SwiftUI
 struct RedeemedView: View {
     @Binding var urlFromParent: String
     
-    @State private var redeemedCoupons: [Coupon] = []
+    @State var redeemedCoupons: [Coupon]
+    @State var serverMsg: String = ""
     
     var body: some View {
-        List(redeemedCoupons) { couponItem in
-            VStack{
-                NavigationLink(destination: DetailsView(coupon: couponItem, urlFromParent: $urlFromParent)){
-                    VStack (alignment: .leading){
-                        Text(couponItem.restaurant)
-                        Text(couponItem.mall)
+        VStack{
+            //Text(serverMsg)
+            List(redeemedCoupons) { couponItem in
+                VStack (alignment: .leading){
+                    NavigationLink(destination: DetailsView(coupon: couponItem, urlFromParent: $urlFromParent)){
+                        VStack (alignment: .leading){
+                            Text(couponItem.restaurant)
+                            Text(couponItem.mall)
+                        }
                     }
+                    
                 }
-                
-            }
-        }.navigationBarTitle("Redeemed Coupons",displayMode: .inline).onAppear(perform: {
-            requestRedeemed()
-        })
+            }.navigationBarTitle("Redeemed Coupons",displayMode: .inline).onAppear(perform: {
+                requestRedeemed()
+            })
+        }
     }
 }
 
@@ -33,8 +37,16 @@ struct RedeemedView_Previews: PreviewProvider {
     @ObservedObject static var sampleUrl = urlItem()
 
     static var previews: some View {
-        RedeemedView(urlFromParent: $sampleUrl.url)
+        RedeemedView(urlFromParent: $sampleUrl.url, redeemedCoupons: [])
     }
+}
+
+struct userCoupons: Decodable {
+    var coupons: [Coupon]
+    var id: Int
+    var username: String
+    var wallet: Int
+    var role: String
 }
 
 extension RedeemedView {
@@ -65,12 +77,18 @@ extension RedeemedView {
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
                 self.handleServerError(response)
+//                let str = String(decoding: data!, as: UTF8.self)
+//                serverMsg = str
                 return
             }
-            if let data = data, let coupons = try? JSONDecoder().decode([Coupon].self, from: data) {
+            
+//            let str = String(decoding: data!, as: UTF8.self)
+//            serverMsg = str
+            
+            if let data = data, let usercoupons = try? JSONDecoder().decode(userCoupons.self, from: data) {
                 DispatchQueue.main.async {
                     //update
-                    self.redeemedCoupons = coupons
+                    self.redeemedCoupons = usercoupons.coupons
                 }
                 
             }

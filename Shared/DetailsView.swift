@@ -33,6 +33,9 @@ struct DetailsView: View {
                         .underline(true, color:Color.gray)
                         .font(.system(size:30)).padding(.bottom, 3)
                     Text(coupon.title)
+                        .alert(isPresented: self.$showsRedeemSuccess){
+                            Alert(title: Text("Redeem Success!"), message: Text("Coupon successfully redeemed!"))
+                        }
                     HStack {
                         Text("Mall: ")
                         Text(coupon.mall)

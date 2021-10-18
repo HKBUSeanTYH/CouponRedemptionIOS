@@ -24,7 +24,12 @@ struct UserView: View {
                     if (loggedInUser.username.isEmpty){
                         Text("                                               ")
                     }else{
-                        Text(loggedInUser.username)
+                        VStack{
+                            Text(loggedInUser.username)
+                            Text(loggedInUser.role)
+                            Text("\(loggedInUser.wallet)")
+                        }
+                        
                         //Text(urlFromParent)
                     }
                 }.padding(.top, 20)
@@ -55,7 +60,7 @@ struct UserView: View {
                         }
                     }
                 }
-            }.navigationBarTitle("User Profile", displayMode: .inline).background(NavigationLink(destination: RedeemedView(urlFromParent: $urlFromParent), isActive: $isLinkActive) {
+            }.navigationBarTitle("User Profile", displayMode: .inline).background(NavigationLink(destination: RedeemedView(urlFromParent: $urlFromParent, redeemedCoupons: []), isActive: $isLinkActive) {
                 EmptyView()
             }
             .hidden())
